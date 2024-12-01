@@ -16,8 +16,11 @@ public class Primes {
                 }
             }
         }
-
+        //percentage calculator
         int percent = (int) (100 * (N - counter - 1)/ N);
+
+        //print leading line
+        System.out.println("Prime numbers up to " + N + ":");
 
         int index = 0;
         int[] primeNumbers = new int[N - counter];

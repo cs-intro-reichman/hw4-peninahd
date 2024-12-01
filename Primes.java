@@ -17,7 +17,7 @@ public class Primes {
             }
         }
 
-        int percent = (int) (100 * (N - counter + 2)/ N);
+        int percent = (int) (100 * (N - counter - 1)/ N);
 
         int index = 0;
         int[] primeNumbers = new int[N - counter];
@@ -28,16 +28,8 @@ public class Primes {
             }
         }
 
-        System.out.println("There are " + (N - counter + 2) + " primes between 2 and " + N + ". (" +
+        System.out.println("There are " + (N - counter - 1) + " primes between 2 and " + N + ". (" +
             percent + "% are primes)");
         
-
-
-
-
-
-
-
-
     }
 }

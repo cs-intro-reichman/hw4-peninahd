@@ -19,8 +19,58 @@ public class KeywordsDetector {
     }
 
     // Iterates through all the sentences.
-    // If a sentence contains one or more of the kewords, prints it.
+    // If a sentence contains one or more of the keywords, prints it.
     public static void detectAndPrint(String[] sentences, String[] keywords) {
-        // Replace this comment with your code
+        for (int i = 0; i < sentences.length; i++) {
+            String sentence = sentences[i];
+            if (sentence == null || sentence.isEmpty()){
+                continue;
+            }
+
+            //find out how many different words are in the string
+            int wordCounter = 0;
+            for (int j = 0; j < sentence.length(); j++){
+                if(sentence.charAt(j) == ' ') {
+                    wordCounter++;
+                }
+            }
+
+            //i want to turn each string of words into an array of individual words
+            //then i can check if each word == keywords
+            String[] newArr = new String[wordCounter + 1];
+            int newArrIndex = 0;
+            String word = "";
+
+            for (int j = 0; j < sentence.length(); j++) {
+                char c = sentence.charAt(j);
+                if (c != ' ') {
+                    word += c;
+                } else {
+                    newArr[newArrIndex] = word;
+                    newArrIndex++;
+                    word = "";
+                }
+            }
+
+            //adding the last word
+            if (!word.isEmpty()) {
+                newArr[newArrIndex] = word;
+            }
+                //now i can iterate through each word and compare them to the keywords
+                //need to fix this part!!!!
+                for(int j = 0; j < newArr.length; j++) {
+                    String words = newArr[j];
+                    if (words == null) {
+                        continue;
+                    }
+                    for (int k = 0; k < keywords.length; k++) {
+                        String keyword = keywords[k];
+                        if (words.toLowerCase().equals(keyword.toLowerCase())) {
+                            System.out.println(sentence);
+                            break;
+                        }                         
+                    }
+            }
+        }   
     }
 }

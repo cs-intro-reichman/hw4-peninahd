@@ -1,5 +1,6 @@
 public class MyString {
     public static void main(String[] args) {
+        System.out.println(contains("historical", "story")); // false
         System.out.println("Testing lowercase:");
         System.out.println("UnHappy : " + lowerCase("UnHappy"));
         System.out.println("This costs 15 Sheksls : " + lowerCase("This costs 15 Sheksls"));
@@ -18,13 +19,42 @@ public class MyString {
 
     /** Returns the lowercase version of the given string. */
     public static String lowerCase(String str) {
-        // Replace the following statement with your code
-        return null;
+        String lowerStr = "";
+        for(int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+            if (c == 32) {
+                lowerStr += c;
+            }
+            if (c < 97 && c != 32) {
+                c += 32;
+                lowerStr += c;
+            } else if (c >= 97) {
+                lowerStr += c;
+            } 
+            }
+        return lowerStr;
     }
 
     /** If str1 contains str2, returns true; otherwise returns false. */
     public static boolean contains(String str1, String str2) {
-        // Replace the following statement with your code
-        return false;
+        for (int i = 0; i < str2.length(); i++) {
+            char c = str2.charAt(i);
+            boolean found = false;
+
+            for (int j = 0; j < str1.length(); j ++) {
+                char a = str1.charAt(j);
+                if (a == 32) {
+                    break;
+                }
+                if (c == a) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                return false;
+            }
+        }
+        return true;
     }
 }
